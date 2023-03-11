@@ -1,0 +1,213 @@
+@font-face {
+  font-family: "e-Ukraine";
+  src: url("../fonts/E-Ukraine-Regular.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background: linear-gradient(180deg, #1D1E26 0%, #25273C 100%);
+  font-family: "e-Ukraine", sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  font-size: 18px;
+}
+.navbar .logo a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 24px;
+}
+.navbar .navbar-links a {
+  text-decoration: none;
+  color: #fff;
+  margin: 0 10px;
+}
+.navbar .navbar-links a:hover {
+  color: #ccc;
+}
+.navbar .button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: 10px;
+}
+.navbar .login-button {
+  margin-right: 20px;
+}
+.navbar .menu-icon {
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+}
+.navbar .menu-icon:hover {
+  color: #ccc;
+}
+.navbar .navbar-menu {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: absolute;
+  top: 100%;
+  background-color: #333;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+.navbar .navbar-menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-bottom: 1px solid #fff;
+  transition: background-color 0.3s ease-in-out;
+}
+.navbar .navbar-menu a:hover {
+  background-color: #007bff;
+}
+@media (max-width: 784px) {
+  .navbar .navbar-links {
+    display: none;
+  }
+  .navbar .menu-icon {
+    display: block;
+  }
+  .navbar .navbar-menu {
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+  }
+  .navbar .navbar-menu.expanded {
+    max-height: 400px;
+  }
+  .navbar .navbar-menu a {
+    border-bottom: none;
+  }
+  .navbar .button {
+    margin-right: 10px;
+  }
+}
+
+.tickets-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.ticket {
+  background-color: #ADD8E6;
+  color: #222;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 400px;
+  width: 100%;
+  box-sizing: border-box;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  min-height: 200px;
+  flex-basis: calc(33.33% - 20px);
+}
+
+.ticket:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transform: skewY(-10deg);
+  transform-origin: 0;
+  z-index: -1;
+}
+
+.ticket:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, #e63d2d, #ff8d00);
+  opacity: 0.7;
+  z-index: -2;
+}
+
+.ticket .ticket-info {
+  flex-basis: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-transform: none;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}
+
+.ticket .ticket-info span {
+  display: block;
+}
+
+.ticket .ticket-details {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.ticket .ticket-details span {
+  display: block;
+}
+
+.ticket .ticket-status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  background-color: #1abc9c;
+  color: #fff;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .ticket {
+    margin: 20px 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
