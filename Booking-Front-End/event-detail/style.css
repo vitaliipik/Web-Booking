@@ -1,3 +1,4 @@
+/* Main color variables */
 @font-face {
   font-family: "e-Ukraine";
   src: url("../fonts/E-Ukraine-Regular.otf") format("otf");
@@ -100,69 +101,104 @@ body {
   }
 }
 
-.events-container {
-  width: 100%;
+/* Ticket section styles */
+.ticket {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 30px;
+}
+.ticket .ticket-title {
+  grid-column: 1/-1;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #005fa3;
+}
+.ticket .ticket-info {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.event-details {
-  background-color: #222;
-  border: 2px solid #1abc9c;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-  margin: 20px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.event-header {
-  background-color: #1abc9c;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 20px;
-}
-
-.event-name {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.event-body {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 20px;
-}
-
-.event-info {
-  flex: 1;
-}
-
-.event-info-item {
-  display: flex;
-  flex-direction: row;
   margin-bottom: 10px;
 }
-
-.event-info-label {
-  color: #1abc9c;
-  font-weight: bold;
+.ticket .ticket-info .ticket-label {
+  flex: 0 0 120px;
   margin-right: 10px;
+  text-align: right;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ticket .ticket-info .ticket-value {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ticket .ticket-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-.event-photo {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  object-position: center;
+/* Media queries */
+@media only screen and (max-width: 768px) {
+  .ticket {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, auto);
+    gap: 20px;
+  }
+  .ticket-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  .ticket-info {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .ticket-info .ticket-label {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+}
+/* Button styles */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #005fa3;
+  border-radius: 5px;
+  text-decoration: none;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+.btn:hover {
+  background-color: #004170;
+}
+.btn-primary {
+  margin-top: 50px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Footer styles */
+footer {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 50px;
+}
+footer p {
+  font-size: 14px;
+  color: #4a4a4a;
+  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

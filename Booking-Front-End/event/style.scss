@@ -1,6 +1,6 @@
 $mobile-breakpoint: 784px;
-
-
+$object-fit-photo: cover;
+$object-position-photo: center;
 
 @font-face {
   font-family: 'e-Ukraine';
@@ -121,6 +121,15 @@ body {
     }
   }
 }
+
+.events-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .event-details {
   background-color: #222;
   border: 2px solid #1abc9c;
@@ -132,6 +141,7 @@ body {
   font-size: 14px;
   margin: 20px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .event-header {
@@ -145,12 +155,6 @@ body {
   font-size: 24px;
   font-weight: bold;
   margin: 0;
-}
-
-.event-status {
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
 }
 
 .event-body {
@@ -175,28 +179,11 @@ body {
   font-weight: bold;
   margin-right: 10px;
 }
-
-.event-actions {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+.event-photo {
+  width: 100%;
+  max-height: 300px;
+  object-fit: $object-fit-photo;
+  object-position: $object-position-photo;
 }
-
-.event-button {
-  background-color: #1abc9c;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px 20px;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.event-button:hover {
-  background-color: #007bff;
-}
-
 
 
