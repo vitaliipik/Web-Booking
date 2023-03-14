@@ -5,6 +5,7 @@
   font-style: normal;
 }
 body {
+  min-width: 270px;
   background: linear-gradient(180deg, #1D1E26 0%, #25273C 100%);
   font-family: "e-Ukraine", sans-serif;
   height: 100vh;
@@ -121,6 +122,13 @@ body {
   overflow: hidden;
   cursor: pointer;
 }
+.event-details:hover .event-info-label {
+  color: white;
+}
+.event-details:hover {
+  background-color: #1abc9c;
+  transition: all 1s ease;
+}
 
 .event-header {
   background-color: #1abc9c;
@@ -163,6 +171,24 @@ body {
   max-height: 300px;
   object-fit: cover;
   object-position: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .event-details {
+    max-width: 100%;
+    flex-basis: 100%;
+    font-size: 20px;
+  }
+}
+@media (max-width: 365px) {
+  .event-info-item {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
