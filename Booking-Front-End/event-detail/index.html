@@ -1,94 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Event Ticket</title>
   <meta charset="UTF-8">
+  <title>Ellipsized Event Site</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <nav class="navbar">
-    <div class="logo">
-      <a href="#">MyTicket</a>
-    </div>
-    <div class="navbar-links">
-      <a href="#">Events</a>
-      <a href="#">Account</a>
-    </div>
-    <button class="button">Login</button>
-    <div class="menu-icon">&#9776;</div>
-    <div class="navbar-menu">
-      <a href="#">Events</a>
-      <a href="#">Account</a>
-    </div>
-  </nav>
+<header class="header">
+  <h1 class="header-title">Ellipsized Event Site</h1>
 </header>
-<section class="ticket">
-  <h2 class="ticket-title">Ticket Details</h2>
-  <div class="ticket-info">
-    <div class="ticket-label">Name:</div>
-    <div class="ticket-value">John Doe</div>
-  </div>
-  <div class="ticket-info">
-    <div class="ticket-label">Address:</div>
-    <div class="ticket-value">123 Main St, Anytown USA</div>
-  </div>
-  <div class="ticket-info">
-    <div class="ticket-label">Date:</div>
-    <div class="ticket-value">March 15, 2023</div>
-  </div>
-  <div class="ticket-info">
-    <div class="ticket-label">Seat:</div>
-    <div class="ticket-value">A5</div>
-  </div>
-  <div class="ticket-info">
-    <div class="ticket-label">Status:</div>
-    <div class="ticket-value">Confirmed</div>
-  </div>
-</section>
-<div class="ticket-detail">
-  <div class="ticket-detail__header">
-    <h1 class="ticket-detail__title">Ticket Title</h1>
-    <div class="ticket-detail__status">Open</div>
-  </div>
-  <div class="ticket-detail__content">
-    <div class="ticket-detail__field">
-      <label >Ticket ID</label>
-      <div class="ticket-detail__field-value">123456</div>
-    </div>
-    <div class="ticket-detail__field">
-      <label >Description</label>
-      <div class="ticket-detail__field-value">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-    </div>
-    <div class="ticket-detail__field">
-      <label >Priority</label>
-      <div class="ticket-detail__field-value">High</div>
-    </div>
-    <div class="ticket-detail__field">
-      <label >Category</label>
-      <div class="ticket-detail__field-value">Technical issue</div>
-    </div>
-    <div class="ticket-detail__field">
-      <label >Assignee</label>
-      <div class="ticket-detail__field-value">John Smith</div>
-    </div>
-    <div class="ticket-detail__field">
-      <label >Created</label>
-      <div class="ticket-detail__field-value">March 10, 2023 10:30 AM</div>
-    </div>
-    <div class="ticket-detail__field">
-      <label >Last updated</label>
-      <div class="ticket-detail__field-value">March 11, 2023 2:45 PM</div>
-    </div>
-    <div class="ticket-detail__actions">
-      <button class="ticket-detail__edit-btn">Edit</button>
-      <button class="ticket-detail__delete-btn">Delete</button>
+<main class="main">
+  <div class="event">
+    <img src="https://picsum.photos/800/600" alt="Event Photo" class="event-photo">
+    <div class="event-details">
+      <h2 class="event-name">Event Name Goes Here</h2>
+      <div class="event-fields">
+        <div class="event-field event-date">Date Goes Here</div>
+        <div class="event-field event-address">Address Goes Here</div>
+        <div class="event-field event-tickets">Tickets Count Goes Here</div>
+      </div>
+      <div class="event-buttons">
+        <a href="#" class="event-book-button">Book</a>
+        <a href="#" class="event-buy-button">Buy</a>
+      </div>
     </div>
   </div>
-</div>
-
-
-
+</main>
 </body>
 </html>

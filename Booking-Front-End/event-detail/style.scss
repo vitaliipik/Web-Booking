@@ -1,236 +1,194 @@
-/* Main color variables */
-$primary-color: #005fa3;
-$secondary-color: #4a4a4a;
-$mobile-breakpoint: 784px;
+$color-black: #000;
+$color-white: #fff;
 
+$color-background: $color-black;
+$color-text: $color-white;
 
+$height-header: 6rem;
 
-@font-face {
-  font-family: 'e-Ukraine';
-  src: url('../fonts/E-Ukraine-Regular.otf') format("otf");
-  font-weight: normal;
-  font-style: normal;
-}
+$max-width-event: 1200px;
 
-body {
-  background: linear-gradient(180deg, #1D1E26 0%, #25273C 100%);
-  font-family: 'e-Ukraine', sans-serif;
-  height: 100vh;
+$border-radius-photo: 20px 20px 0 0;
+$border-radius-details: 0 0 20px 20px;
+
+$font-size-name: 3rem;
+$font-size-fields: 1.6rem;
+$font-size-buttons: 1.6rem;
+$font-size-link: 1.6rem;
+
+$font-weight-name: bold;
+
+$padding-details: 2rem;
+$padding-buttons: 1.5rem 3rem;
+
+$transition-color: 0.3s;
+$transition-background-color: $transition-color;
+
+$cursor-pointer: relative;
+
+$object-fit-photo: contain;
+$object-position-photo: center;
+
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
+html,
+body {
+  height: 100%;
+}
 
-.navbar {
+.header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  font-size: 18px;
-
-  .logo a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 24px;
-  }
-
-  .navbar-links a {
-    text-decoration: none;
-    color: #fff;
-    margin: 0 10px;
-
-    &:hover {
-      color: #ccc;
-    }
-  }
-
-  .button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-left: auto;
-    margin-right: 10px;
-  }
-
-  .login-button {
-    margin-right: 20px;
-  }
-
-  .menu-icon {
-    font-size: 28px;
-    cursor: pointer;
-    display: none;
-
-    &:hover {
-      color: #ccc;
-    }
-  }
-
-  .navbar-menu {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    position: absolute;
-    top: 100%;
-    background-color: #333;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-
-    a {
-      color: #fff;
-      text-decoration: none;
-      padding: 10px;
-      border-bottom: 1px solid #fff;
-      transition: background-color 0.3s ease-in-out;
-
-      &:hover {
-        background-color: #007bff;
-      }
-    }
-  }
-
-  @media (max-width: $mobile-breakpoint) {
-    .navbar-links {
-      display: none;
-    }
-
-    .menu-icon {
-      display: block;
-    }
-
-    .navbar-menu {
-      max-height: 0;
-      transition: max-height 0.3s ease-in-out;
-
-      &.expanded {
-        max-height: 400px;
-      }
-
-      a {
-        border-bottom: none;
-      }
-    }
-
-    .button {
-      margin-right: 10px;
-    }
-  }
+  justify-content: center;
+  background-color: $color-background;
+  color: $color-text;
+  height: $height-header;
 }
 
-
-/* Ticket section styles */
-.ticket {
-  margin-top: 100px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, auto);
-  gap: 30px;
-
-  .ticket-title {
-    grid-column: 1 / -1;
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: $primary-color;
-  }
-  .ticket-info {
-    display: flex;
-    margin-bottom: 10px;
-
-    .ticket-label {
-      flex: 0 0 120px;
-      margin-right: 10px;
-      text-align: right;
-      font-weight: bold;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .ticket-value {
-      flex: 1;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-
-  .ticket-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-}
-
-/* Media queries */
-@media only screen and (max-width: 768px) {
-  .ticket {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, auto);
-    gap: 20px;
-  }
-
-  .ticket-title {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-
-  .ticket-info {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 10px;
-    .ticket-label {
-      margin-right: 0;
-      margin-bottom: 5px;
-    }
-  }
-}
-/* Button styles */
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  color: #fff;
-  background-color: $primary-color;
-  border-radius: 5px;
-  text-decoration: none;
-  border: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
+.header-title {
+  font-size: 2rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: bold;
+}
 
-  &:hover {
-    background-color: darken($primary-color, 10%);
-  }
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - #{$height-header});
+  background-color: $color-background;
+  color: $color-text;
+}
 
-  &-primary {
-    margin-top: 50px;
-    display: block;
-    margin: 0 auto;
+.event {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: $max-width-event;
+  width: 100%;
+}
+
+.event-photo {
+  height: 400px;
+  width: 100%;
+  max-height: 50%;
+
+  object-fit: $object-fit-photo;
+  object-position: $object-position-photo;
+  border-radius: $border-radius-photo;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: $padding-details;
+  background-color: $color-white;
+  border-radius: $border-radius-details;
+  h2{
+    color: black;
   }
 }
 
-/* Footer styles */
-footer {
-  background-color: #f8f9fa;
-  padding: 20px 0;
+.event-name {
+  font-size: $font-size-name;
+  font-weight: $font-weight-name;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
   text-align: center;
-  margin-top: 50px;
+}
 
-  p {
-    font-size: 14px;
-    color: $secondary-color;
-    margin: 0;
+.event-fields {
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.event-field {
+  font-size: $font-size-fields;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.event-field:last-child {
+  margin-right: 0;
+}
+
+.event-buttons {
+  display: flex;
+  margin-bottom: 3rem;
+}
+
+.event-book-button,
+.event-buy-button {
+  display: inline-block;
+  margin-right: 2rem;
+  padding: $padding-buttons;
+  font-size: $font-size-buttons;
+  font-weight: $font-weight-name;
+  text-align: center;
+  text-transform: uppercase;
+  color: $color-text;
+  background-color: $color-background;
+  border-radius: 30px;
+  cursor: $cursor-pointer;
+  transition: background-color $transition-background-color;
+}
+
+.event-book-button:hover,
+.event-buy-button:hover {
+  background-color: $color-white;
+  color: $color-background;
+}
+
+.event-link {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.event-link:hover {
+  color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .event-name {
+    font-size: 2.5rem;
+  }
+
+  .event-fields {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  .event-field {
+    margin-right: 0;
+  }
+
+  .event-buttons {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  .event-book-button,
+  .event-buy-button {
+    margin-right: 0;
+    margin-bottom: 1rem;
   }
 }
+
