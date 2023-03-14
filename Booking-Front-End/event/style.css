@@ -79,7 +79,7 @@ body {
 .navbar .navbar-menu a:hover {
   background-color: #007bff;
 }
-@media (max-width: 784px) {
+@media (max-width: 564px) {
   .navbar .navbar-links {
     display: none;
   }
@@ -173,7 +173,7 @@ body {
   object-position: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 898px) {
   .container {
     flex-direction: column;
     align-items: center;

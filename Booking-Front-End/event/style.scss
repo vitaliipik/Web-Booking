@@ -1,4 +1,4 @@
-$mobile-breakpoint: 784px;
+$mobile-breakpoint: 564px;
 $object-fit-photo: cover;
 $object-position-photo: center;
 
@@ -198,7 +198,7 @@ body {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 898px) {
   .container {
     flex-direction: column;
     align-items: center;

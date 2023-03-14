@@ -129,6 +129,16 @@ body {
   min-height: 200px;
   flex-basis: calc(33.33% - 20px);
 }
+.ticket:hover {
+  background-color: black;
+  transition: all 1s ease;
+}
+.ticket:hover .ticket-event {
+  color: white;
+}
+.ticket:hover .ticket-seat {
+  color: white;
+}
 
 .ticket:before {
   content: "";
