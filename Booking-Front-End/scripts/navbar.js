@@ -14,7 +14,6 @@ export default async function navBar() {
 
         navbar.appendChild(href);
         navbar.querySelector('.navbar-links').querySelectorAll('a')[1].setAttribute('href', '../ticket/index.html');
-
     }
 
     navbar.querySelector('.navbar-links').querySelectorAll('a')[0].setAttribute('href', '../event/event.html');
