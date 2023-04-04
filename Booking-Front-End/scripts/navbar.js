@@ -1,7 +1,7 @@
 export default async function navBar() {
     const navbar = document.querySelector('.navbar');
+    const button = navbar.querySelector('button');
     if (JSON.parse(sessionStorage.getItem('basic')) !== null) {
-        const button = navbar.querySelector('button');
         navbar.removeChild(button);
         const href = document.createElement('a');
         href.setAttribute('href', '../account/index.html');
@@ -14,6 +14,10 @@ export default async function navBar() {
 
         navbar.appendChild(href);
         navbar.querySelector('.navbar-links').querySelectorAll('a')[1].setAttribute('href', '../ticket/index.html');
+    } else {
+        button.onclick = () => {
+            window.location.href = '../login/index.html';
+        };
     }
 
     navbar.querySelector('.navbar-links').querySelectorAll('a')[0].setAttribute('href', '../event/event.html');

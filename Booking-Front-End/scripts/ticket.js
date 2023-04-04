@@ -42,6 +42,8 @@ sendRequest('GET', `${requestURL}user/${JSON.parse(sessionStorage.getItem('usern
                 }).then(() => {
                     const ticket = ticketAttribute(post);
                     ticketsContainer.appendChild(ticket);
+                }).catch((err) => {
+                    alert(err.message);
                 });
         });
     })

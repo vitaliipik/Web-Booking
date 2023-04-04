@@ -24,7 +24,7 @@ function eventAttribute(post) {
 
     const image = document.createElement('img');
     image.setAttribute('class', 'event-photo');
-    image.setAttribute('src', 'https://picsum.photos/800/600');
+    image.setAttribute('src', `https://picsum.photos/${Math.floor(Math.random() * (800 - 785) + 790)}/600`);
     image.setAttribute('alt', 'Event Photo');
 
     const eventBody = document.createElement('div');
@@ -76,5 +76,5 @@ sendRequest('GET', `${requestURL}event`, body)
     })
     .catch((err) => {
         console.log(err);
-        window.location.href = '../login/index.html';
+        // window.location.href = '../login/index.html';
     });
