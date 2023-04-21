@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { TicketComponent } from './ticket/ticket.component';
 import {AuthInterceptor} from "./services/auth.interceptor";
 import { AccountComponent } from './account/account.component';
+import {StorageService} from "./services/storage.service";
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AccountComponent } from './account/account.component';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

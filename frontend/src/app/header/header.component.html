@@ -8,7 +8,7 @@
     <input type="text" placeholder="Search by"/>
   </div>
 
-  <button *ngIf="(!userLogged); else loggedIn" class="button">Login</button>
+  <button *ngIf="isLoggedIn$ | async as isLoggedIn; else loggedIn" class="button" routerLink="/login">Login</button>
   <ng-template  #loggedIn> <img routerLink="/account" src="assets/img/person-svg.svg" width="100%"/></ng-template>
 
   <div class="menu-icon">☰</div>
