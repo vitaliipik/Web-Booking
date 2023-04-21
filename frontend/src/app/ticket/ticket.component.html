@@ -1,0 +1,9 @@
+<div class="tickets-container">
+  <div class="ticket"  *ngFor="let ticket of tickets">
+    <div class="ticket-header">
+      <div class="ticket-event">{{ticket.name}}</div>
+      <div class="ticket-status">{{ticket.status}}</div>
+    </div>
+    <div class="ticket-seat">{{ticket.seat}}</div>
+  </div>
+</div>

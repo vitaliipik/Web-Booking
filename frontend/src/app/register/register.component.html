@@ -1,0 +1,21 @@
+<div class="register-container">
+  <h1>Create a New Account</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" placeholder="Your username" formControlName="username">
+    <label for="first-name">First Name</label>
+    <input type="text" id="first-name" name="first-name" placeholder="Your first name" formControlName="first-name">
+    <label for="last-name">Last Name</label>
+    <input type="text" id="last-name" name="last-name" placeholder="Your last name" formControlName="last-name">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Your email address" formControlName="email">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Your password" formControlName="password">
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" placeholder="Your phone number" formControlName="phone">
+    <button type="submit">Sign Up</button>
+  </form>
+  <div class="signup-link">
+    <p>Already have an account? <a routerLink="/login">Log in</a></p>
+  </div>
+</div>
