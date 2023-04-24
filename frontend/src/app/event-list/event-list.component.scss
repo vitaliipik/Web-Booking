@@ -73,6 +73,9 @@
   object-position: $object-position-photo;
 }
 
+footer{
+  display: block;
+}
 
 @media (max-width: 898px) {
   .container {

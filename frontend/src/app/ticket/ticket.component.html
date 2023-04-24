@@ -2,9 +2,14 @@
   <div class="ticket"  *ngFor="let ticket of tickets">
     <div class="ticket-header">
       <div class="ticket-event">{{ticket.name}}</div>
-      <div class="ticket-status">{{ticket.status}}</div>
+      <div class="divide"><div class="ticket-status">{{ticket.status}}</div>
+        <div class="ticket-seat">{{ticket.seat}}</div></div>
     </div>
-    <div class="ticket-seat">{{ticket.seat}}</div>
+
   </div>
+
+
+</div>
+<div class="spin">
   <app-spinner></app-spinner>
 </div>

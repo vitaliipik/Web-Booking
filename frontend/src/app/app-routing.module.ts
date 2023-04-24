@@ -20,6 +20,8 @@ const routes: Routes = [
     component: LoginComponent
   },
   {path:"ticket",
+    canActivate: [FeatureGuard],
+    data: { permission: Permission.user },
     component: TicketComponent
   },
   {path:"account",

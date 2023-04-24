@@ -1,14 +1,13 @@
 <div class="pagination">
   <ul>
-    <li>
-      <button
-        aria-label="Go To Previous Page"
-        [attr.aria-disabled]="currentPage === 1"
-        [disabled]="currentPage === 1"
-        (click)="onPrevious()"
-      >
+    <li
+      aria-label="Go To Previous Page"
+      [attr.aria-disabled]="currentPage === 1"
+      [ngClass]="{'disabled':currentPage === 1}"
+      (click)="onPrevious()"
+    >
         Previous
-      </button>
+
     </li>
     <li *ngFor="let page of pages; index as i">
       <a
@@ -28,15 +27,14 @@
         <a class="more"> ... </a>
       </ng-template>
     </li>
-    <li>
-      <button
-        aria-label="Go To Next Page"
-        [attr.aria-disabled]="currentPage === total"
-        [disabled]="currentPage === total"
-        (click)="onNext()"
-      >
+    <li
+      aria-label="Go To Next Page"
+      [attr.aria-disabled]="currentPage === total"
+      [ngClass]="{'disabled':currentPage === total}"
+      (click)="onNext()">
+
         Next
-      </button>
+
     </li>
   </ul>
 </div>

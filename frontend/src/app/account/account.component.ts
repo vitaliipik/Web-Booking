@@ -23,8 +23,8 @@ export class AccountComponent implements OnInit{
   private initForm(user:UserItem) {
     this.form = this.builder.group({
       username: [user.username, Validators.required],
-      first_name: [user.first_name],
-      last_name: [user.last_name],
+      first_name: ['',user.first_name],
+      last_name: ['',user.last_name],
       phone: [user.phone],
       email: [user.email,
         Validators.compose([Validators.required,

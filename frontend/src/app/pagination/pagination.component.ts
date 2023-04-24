@@ -8,7 +8,7 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 export class PaginationComponent implements OnChanges{
   @Input() currentPage = 1;
   @Input() total = 0;
-  @Input() limit = 20;
+
   @Output() goTo: EventEmitter<number> = new EventEmitter<number>()
   @Output() next: EventEmitter<number> = new EventEmitter<number>()
   @Output() previous: EventEmitter<number> = new EventEmitter<number>()

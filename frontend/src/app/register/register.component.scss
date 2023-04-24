@@ -79,3 +79,13 @@ button {
 .signup-link a:hover {
   text-decoration: underline;
 }
+
+.error{
+  background: #c51244 !important;
+  padding: 10px !important;
+  border: 1px solid white !important;
+  position: relative;
+  display: inline-block !important;
+color:white;
+  margin-bottom: 10px;
+}

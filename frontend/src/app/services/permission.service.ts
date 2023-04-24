@@ -14,10 +14,11 @@ export class PermissionService {
   user:UserItem;
   checkPermission(permission: Permission): boolean {
 
-    if(this.storage.getUser().role!=permission){
-      return false;
+    if(this.storage.getUser().role===permission){
+      return true;
+
     }
-    return true;
+    return false;
   }
 
 }

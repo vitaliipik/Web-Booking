@@ -13,7 +13,8 @@
   </div>
 
   <button *ngIf="isLoggedIn$| async; else loggedIn" class="button" routerLink="/login">Login</button>
-  <ng-template  #loggedIn> <img routerLink="/account" src="assets/img/person-svg.svg" width="100%"/></ng-template>
+  <ng-template  #loggedIn> <img routerLink="/account" src="assets/img/person-svg.svg" width="100%" alt=""/>
+  </ng-template>
 
   <div class="menu-icon">☰</div>
   <div class="navbar-menu">

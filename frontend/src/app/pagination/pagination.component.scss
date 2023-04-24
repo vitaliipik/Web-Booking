@@ -25,3 +25,8 @@ li:hover {
   background-color: #1a1a1a;
   color: #fff;
 }
+
+.disabled{
+  pointer-events: none;
+  opacity: 0.6;
+}

@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
       error: err => {
 
 
-        alert(err.error.message);
+        alert(err.error);
 
     }})
 
