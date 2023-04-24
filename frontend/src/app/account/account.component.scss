@@ -1,0 +1,52 @@
+@use 'variables' as *;
+.shadow {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.profile-tab-nav{
+  min-width:250px;
+}
+.tab-content{
+  flex:1;
+}
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.nav-pills{
+  a.nav-link{
+    padding:15px 20px;
+    border-bottom:1px solid black;
+    border-radius:0;
+    color:#333;
+    i{
+      width:20px;
+    }
+  }
+}
+
+#logout-tab{
+  margin-top: 5em;
+}
+
+.container{
+  h1{
+    color: $color-white;
+  }
+  h4{
+    color: $color-white;
+  }
+  h3{
+    color: $color-white;
+  }
+  a{
+    color: $color-white;
+  }
+  a.nav-link{
+    color: $color-white;
+  }
+  label{
+    color: $color-white;
+  }
+  background-color: #222;
+}

@@ -1,0 +1,17 @@
+<div class="bar">
+
+
+  <input class="search-input" type="text" #searchbar [(ngModel)]="searchInput" (keyup)="fetchSeries($event)" placeholder="Enter the"/>
+  <i class="fa fa-search"></i>
+
+</div>
+<ul>
+
+
+
+  <li *ngFor="let show of searchResult" [hidden]="toggle" routerLink="{{show.id}}">
+    <p> {{ show.president }}</p>
+  </li>
+
+
+</ul>

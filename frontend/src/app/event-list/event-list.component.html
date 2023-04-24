@@ -5,7 +5,7 @@
     <div class="event-header">
       <h3 class="event-name">{{event.name}}</h3>
     </div>
-    <img src="https://picsum.photos/800/600" alt="Event Photo" class="event-photo">
+    <img src="https://picsum.photos/{{rando}}/600" alt="Event Photo" class="event-photo">
     <div class="event-body">
       <div class="event-info">
         <div class="event-info-item">
@@ -19,6 +19,9 @@
       </div>
     </div>
   </div>
-
+  <app-pagination
+    [currentPage]="1"
+    [total]="40"
+  ></app-pagination>
 
 </div>

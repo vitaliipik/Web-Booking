@@ -1,9 +1,11 @@
 
-export interface CurrentUser {
+export interface UserItem {
   email: string;
-  firstName: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
   id: number;
   username: string;
   password: string;
+  phone: string;
+  role: string;
 }

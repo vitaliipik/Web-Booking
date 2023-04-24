@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpBackend, HttpClient, HttpResponse} from "@angular/common/http";
 import {map} from "rxjs";
 
 @Injectable({
@@ -7,10 +7,11 @@ import {map} from "rxjs";
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private httpBackClient: HttpClient,private httpBack: HttpBackend) {
+  this.httpBackClient=new HttpClient(httpBack);
   }
 
-  registerUser(data: any): any {
+  registerUser(data: any) {
     return this.http
       .post('/api/v1/user',data)
   }

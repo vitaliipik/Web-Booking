@@ -5,7 +5,7 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: $primary-color;
-  color: $text-color;
+  color: $color-white;
 }
 
 .login-container {
@@ -21,7 +21,7 @@ h1 {
   font-size: 28px;
   margin-bottom: 20px;
   text-align: center;
-  color: $text-color;
+  color: $color-white;
 }
 
 form {
@@ -32,7 +32,7 @@ form {
 label {
   font-size: 18px;
   margin-bottom: 5px;
-  color: $text-color;
+  color: $color-white;
 }
 
 input[type="username"],
@@ -43,7 +43,7 @@ input[type="password"] {
   border-radius: 5px;
   font-size: 16px;
   background-color: $primary-color;
-  color: $text-color;
+  color: $color-white;
 
   &:focus {
     outline: none;
@@ -59,7 +59,7 @@ input[type="password"] {
 
 button {
   background-color: $button-color;
-  color: $text-color;
+  color: $color-white;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -79,7 +79,7 @@ button {
 
 .signup-link a,
 .forgot-password a {
-  color: $text-color;
+  color: $color-white;
   text-decoration: none;
 }
 

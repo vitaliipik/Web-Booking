@@ -1,6 +1,7 @@
 import {EventEmitter, Injectable, Output} from '@angular/core';
 import {Router} from "@angular/router";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, map} from "rxjs";
+import {UserService} from "./user.service";
 
 const AUTH_KEY = 'auth-user';
 @Injectable({
@@ -8,12 +9,13 @@ const AUTH_KEY = 'auth-user';
 })
 export class StorageService {
 
-  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
   get isLoggedIn() {
+    this.getUser();
     return this.loggedIn.asObservable();
   }
-  constructor(private router: Router) {
+  constructor(private router: Router,private userService: UserService) {
   }
 
   logOut(): void {
@@ -31,6 +33,7 @@ export class StorageService {
   public getUser(): any {
     const user = sessionStorage.getItem(AUTH_KEY);
     if (user) {
+      this.loggedIn.next(false);
       return JSON.parse(user);
     }
 

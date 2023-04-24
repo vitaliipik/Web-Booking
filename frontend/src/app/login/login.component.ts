@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 
 import {AuthService} from "../services/auth.service";
 import {StorageService} from "../services/storage.service";
+import {map} from "rxjs";
+import {UserService} from "../services/user.service";
+import {HttpHeaders} from "@angular/common/http";
 
 
 @Component({
@@ -16,7 +19,11 @@ export class LoginComponent implements OnInit{
 
   form!: FormGroup;
 
-  constructor(private builder: FormBuilder ,private auth: AuthService, private route: Router, private storage: StorageService) {
+  constructor(private builder: FormBuilder ,
+              private auth: AuthService,
+              private route: Router,
+              private storage: StorageService,
+              private userService: UserService) {
 
   }
 
@@ -32,13 +39,27 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit(): void {
-    if(this.form.valid){
+    if(this.form.valid) {
       this.auth.loginUser(this.form.value).subscribe((res: any) => {
-        this.storage.saveUser({'token':res.basic,'username':this.form.value.username})
-        // localStorage.setItem('token',res.basic)
-        // localStorage.setItem('username',this.form.value.username)
-        this.route.navigateByUrl('')
+        const httpOptions = {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': 'Basic ' + res.basic
+          })
+        };
+        this.userService.getUserData(this.form.value.username, httpOptions).subscribe(
+          (elem) => {
+            this.storage.saveUser({
+              'token': res.basic,
+              'username': this.form.value.username,
+              'role': elem["role"].slice(5,)
+            });
+            this.route.navigateByUrl('/events')
+          })
+
+
       })
+
     }
 
   }

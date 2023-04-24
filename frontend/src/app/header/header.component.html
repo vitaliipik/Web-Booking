@@ -5,10 +5,14 @@
   <div class="navbar-links">
     <a routerLink="/events">Events</a>
     <a routerLink="/ticket">Ticket</a>
-    <input type="text" placeholder="Search by"/>
+
+  </div>
+  <div class="searchbar">
+
+    <app-dropdown-search></app-dropdown-search>
   </div>
 
-  <button *ngIf="isLoggedIn$ | async as isLoggedIn; else loggedIn" class="button" routerLink="/login">Login</button>
+  <button *ngIf="isLoggedIn$| async; else loggedIn" class="button" routerLink="/login">Login</button>
   <ng-template  #loggedIn> <img routerLink="/account" src="assets/img/person-svg.svg" width="100%"/></ng-template>
 
   <div class="menu-icon">☰</div>

@@ -15,6 +15,18 @@ import { AccountComponent } from './account/account.component';
 import {StorageService} from "./services/storage.service";
 
 
+import {FilterPipe} from "./pipe/filter.pipe";
+import { DropdownSearchComponent } from './header/dropdown-search/dropdown-search.component';
+import { AdminComponent } from './admin/admin.component';
+import { PaginationComponent } from './pagination/pagination.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import {LoadingInterceptor} from "./services/loading.interceptor";
+import { EventDetailComponent } from './event-detail/event-detail.component';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +37,8 @@ import {StorageService} from "./services/storage.service";
     TicketComponent,
     AccountComponent
 
+    ,FilterPipe, DropdownSearchComponent, AdminComponent, PaginationComponent, SpinnerComponent, EventDetailComponent
+
   ],
   imports: [
     BrowserModule,
@@ -32,8 +46,11 @@ import {StorageService} from "./services/storage.service";
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+
+
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   StorageService],
   bootstrap: [AppComponent]
 })

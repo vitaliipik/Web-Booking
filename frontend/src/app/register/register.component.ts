@@ -1,6 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../services/auth.service";
+import {catchError} from "rxjs/operators";
+import {HttpErrorResponse} from "@angular/common/http";
+import {throwError} from "rxjs";
+import {StorageService} from "../services/storage.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -10,7 +15,10 @@ import {AuthService} from "../services/auth.service";
 export class RegisterComponent implements OnInit {
   form: FormGroup | any;
 
-  constructor(private builder: FormBuilder ,private auth: AuthService) {
+  constructor(private builder: FormBuilder ,
+              private auth: AuthService,
+              private storage:StorageService,
+              private route:Router) {
 
   }
 
@@ -21,12 +29,34 @@ export class RegisterComponent implements OnInit {
   private initForm() {
     this.form = this.builder.group({
       username: ['', Validators.required],
-      email: ['', Validators.required],
+      first_name: [''],
+      last_name: [''],
+      phone: [''],
+
+      email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.required],
     })
   }
 
   onSubmit(): void {
-    this.auth.registerUser(this.form)
-  }
+    if (!this.form.valid) {
+      return;
+    }
+    this.auth.registerUser(this.form.value).subscribe({
+      next: ()=>{
+        this.auth.loginUser({'username':this.form.value.username,'password':this.form.value.password})
+          .subscribe((res: any) => {
+          this.storage.saveUser({'token':res.basic,'username':this.form.value.username})
+          this.route.navigateByUrl('/events')
+        })
+      },
+      error: err => {
+
+
+        alert(err.error.message);
+
+    }})
+
+
+}
 }
