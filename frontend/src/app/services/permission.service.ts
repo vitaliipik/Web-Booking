@@ -14,7 +14,7 @@ export class PermissionService {
   user:UserItem;
   checkPermission(permission: Permission): boolean {
 
-    if(this.storage.getUser().role===permission){
+    if(this.storage.getUser().role===permission || this.storage.getUser().role==='admin'){
       return true;
 
     }

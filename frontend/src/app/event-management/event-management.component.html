@@ -1,0 +1,35 @@
+<div class="search-bar">
+  <input type="text" id="search" #searchbar [(ngModel)]="searchInput"   placeholder="Search...">
+</div>
+<div class="container">
+<a class="button">
+  <div class="button__line"></div>
+  <div class="button__line"></div>
+  <span class="button__text">Add new event</span>
+</a>
+</div>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>date</th>
+    <th>tickets Count</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <!--  <app-spinner></app-spinner>-->
+  <tbody>
+  <tr *ngFor="let event of events| filterEvent: searchInput">
+    <td>{{event.name}}</td>
+    <td>{{event.address}}</td>
+    <td>{{event.date}}</td>
+    <td>{{event.tickets_count}}</td>
+    <td class="actions">
+      <!--      <button class="edit-btn">Edit</button>-->
+      <button class="delete-btn" (click)="deleteUser(event.id)">Delete</button>
+<!--      <button class="add-admin-btn" (click)="makeAdmin(user.username)">make Admin</button>-->
+    </td>
+  </tr>
+  </tbody>
+</table>

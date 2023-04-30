@@ -41,6 +41,10 @@ export class LoginComponent implements OnInit{
   onSubmit(): void {
     if(this.form.valid) {
       this.auth.loginUser(this.form.value).subscribe((res: any) => {
+        if(res.status=='404'){
+          alert(res.message);
+          return;
+        }
         const httpOptions = {
           headers: new HttpHeaders({
             'Content-Type': 'application/json',
@@ -52,7 +56,8 @@ export class LoginComponent implements OnInit{
             this.storage.saveUser({
               'token': res.basic,
               'username': this.form.value.username,
-              'role': elem["role"].slice(5,)
+              'role': elem["role"].slice(5,),
+              'id': elem["id"]
             });
             this.route.navigateByUrl('/events')
           })

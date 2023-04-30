@@ -18,7 +18,7 @@ export class UserService {
     return this.http.get<UserItem>(`/api/v1/user/${username}`,option);
   }
 
-  updateUser(user:UserItem): Observable<any> {
+  updateUser(user:UserItem): Observable<object> {
     return this.http.put(`/api/v1/user`,user)
   }
 

@@ -5,7 +5,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 import {UserItem} from "../models/user.model";
 import {AuthService} from "../services/auth.service";
-import {map} from "rxjs";
+import {map, of, tap} from "rxjs";
+import {catchError} from "rxjs/operators";
 
 @Component({
   selector: 'app-account',
@@ -23,13 +24,13 @@ export class AccountComponent implements OnInit{
   private initForm(user:UserItem) {
     this.form = this.builder.group({
       username: [user.username, Validators.required],
-      first_name: ['',user.first_name],
-      last_name: ['',user.last_name],
+      first_name: [user.first_name],
+      last_name: [user.last_name],
       phone: [user.phone],
       email: [user.email,
         Validators.compose([Validators.required,
           Validators.email])],
-      password: ['', Validators.required],
+      password: [''],
     })
   }
 
@@ -69,23 +70,26 @@ export class AccountComponent implements OnInit{
     if (!this.form.valid) {
       return;
     }
-    this.userService.updateUser(this.form.value).subscribe({
-      next: ()=>{
-        this.auth.loginUser(this.form.value).subscribe((res: any) => {
-          this.userService.getUserData(this.form.value.username).pipe(map(
-            (elem)=>{
-              this.storage.saveUser({'token':res.basic,'username':this.form.value.username,'role': elem["role"].slice(5,)});
-            }))
+    this.userService.updateUser(this.form.value).pipe(tap(_=> {
+      // this.auth.loginUser({'username':this.form.value.username,"password":this.form.value.password}).pipe((res: any) => {
+      this.userService.getUserData(this.form.value.username).pipe(map(
+          (elem) => {
+            this.storage.saveUser({
+              // 'token': res.basic,
+              'username': this.form.value.username,
+              'role': elem["role"].slice(5,)
+            })
+          })
+        )
+//       }}
+// )
+    }),
+      catchError(err => {
+      alert(err.error);
+      return of(null);
+    })).subscribe();
 
 
-        })
-      },
-      error: err => {
-
-
-        alert(err.error.message);
-
-      }})
 
   }
 

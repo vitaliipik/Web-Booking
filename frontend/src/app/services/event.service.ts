@@ -20,4 +20,8 @@ export class EventService {
     return this.http.get<EventItem>('/api/v1/event/'+id)
   }
 
+  getEventSeat(id: any): Observable<number[]> {
+    return this.http.get<number[]>('/api/v1/event/seat/'+id)
+  }
+
 }

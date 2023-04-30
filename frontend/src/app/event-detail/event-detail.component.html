@@ -1,10 +1,104 @@
-<header>
-  <img src="https://picsum.photos/800/600" alt="Event Photo" class="event-photo">
-  <h1>Women in Tech Conference</h1>
-  <p>Date: <span>11/15/2022</span></p>
-  <p>Time: <span>9:00 AM - 5:00 PM</span></p>
-  <p>Location: <span>San Francisco, CA</span></p>
-</header>
+<div class="event-detail-cont" *ngIf="event$ | async as event">
+  <div class="lookbook-gallery">
+    <div class="lookbook-grid" role="region">
+
+      <figure class="model">
+        <img src="https://assets.codepen.io/t-1869/fridays.png"/>
+      </figure>
+
+      <figure class="model">
+        <img src="https://assets.codepen.io/t-1869/fridays.png"/>
+      </figure>
+
+      <figure class="model">
+        <img src="https://assets.codepen.io/t-1869/fridays.png"/>
+<!--        <figcaption class="model&#45;&#45;caption">-->
+<!--          <h3 class="model-hed">Scores Baserunner</h3>-->
+<!--          <p>Scores is 5'5", wearing a size S <a href="#">Fridays Away Blaseball Jersey</a>.-->
+<!--          <p>-->
+<!--        </figcaption>-->
+      </figure>
+    </div>
+  </div>
+  <div class="event-detail-element">
+    <p><span>{{event.date | date:"MMM dd"}}</span></p>
+    <h1>{{event.name}}</h1>
+
+    <!--  <p>Time: <span>{{event.}}</span></p>-->
+
+  </div>
+  <section aria-labelledby="when-and-where" class="event-details__section">
+    <div id="when-and-where" class="tab-navigation-section">
+      <div class="event-details__main-inner">
+        <div class="event-details__section-title"><h2>When and where</h2></div>
+      </div>
+      <div class="detail-grid">
+        <section aria-labelledby="date-time-heading">
+          <div class="detail">
+
+              <div class="detail__icon"><i class="eds-vector-image eds-icon--small eds-vector-image--block"
+                                           data-spec="icon" data-testid="icon" aria-hidden="true"><img
+                src="assets/img/calendar.svg"></i></div>
+              <div class="detail__content">
+                <div class="detail__heading"><h3 id="date-time-heading">Date and time</h3></div>
+                <p><span class="">{{event.date|date:"EEEE, MMMM d, y, h:mm a"}}</span></p></div>
+            </div>
+        </section>
+        <section aria-labelledby="location-heading">
+          <div class="detail">
+
+              <div class="detail__icon">
+                <img src="assets/img/location.svg">
+              </div>
+              <div class="detail__content">
+                <div class="detail__heading"><h3 id="location-heading">Location</h3></div>
+                <p><strong>{{event.address}}</strong> mytna sq, 1 79000 Lviv</p>
+              </div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</div>
 <main>
-  <p>Description: <span>A one-day conference for women in technology featuring keynote speakers, workshops, and networking opportunities.</span></p>
+  <div class="event-buttons">
+    <button class="event-book-button" (click)="bookTicket()">Book</button>
+    <button class="event-buy-button">Buy</button>
+  </div>
+  <p>Description: <span>A one-day conference for women in technology featuring keynote speakers, workshops, anerence for women in technology featuring s, ce for women in technology featuring s, workshops, anerence for women in technology featuring keynote speakers, workshops, and networking opportunities.</span>
+  </p>
 </main>
+<app-popup id="modal-1">
+  <div class="popup">
+    <h1>you are not registered</h1>
+
+    <p>
+      go to login
+    </p>
+    <button (click)="goToLogin()">Login</button>
+    <button (click)="popupService.close()">Close</button>
+  </div>
+
+</app-popup>
+
+<app-popup id="modal-2">
+  <div class="popup">
+    <h1>Select ticket</h1>
+
+    <div class="box">
+      <select [(ngModel)]="selectedSeat">
+        <option *ngFor="let opt of eventSeat">{{opt}}</option>
+      </select>
+    </div>
+    <div class="box">
+      <select [(ngModel)]="selectedAction">
+        <option value="booked">Book</option>
+        <option value="bought">Buy</option>
+      </select>
+    </div>
+    <button (click)="buyTicket()">Buy</button>
+    <button (click)="popupService.close()">Close</button>
+  </div>
+
+</app-popup>

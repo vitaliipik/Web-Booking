@@ -8,6 +8,9 @@ import {AccountComponent} from "./account/account.component";
 import {AdminComponent} from "./admin/admin.component";
 import {FeatureGuard} from "./guard/feature.guard";
 import {Permission} from "./models/permission.model";
+import {EventDetailComponent} from "./event-detail/event-detail.component";
+import {UserManagementComponent} from "./user-management/user-management.component";
+import {EventManagementComponent} from "./event-management/event-management.component";
 
 const routes: Routes = [
   {path:"events",
@@ -30,7 +33,18 @@ const routes: Routes = [
   {path:"admin",
     canActivate: [FeatureGuard],
     data: { permission: Permission.admin },
-    component: AdminComponent
+    component: AdminComponent,
+    children: [
+      {
+        path:'users', component: UserManagementComponent
+      },
+      {
+        path:'events', component: EventManagementComponent
+      }
+    ]
+  },
+  {path:"event/:id",
+    component: EventDetailComponent
   },
   {path:"**",pathMatch:'full',
     component: EventListComponent

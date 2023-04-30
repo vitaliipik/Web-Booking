@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
       next: ()=>{
         this.auth.loginUser({'username':this.form.value.username,'password':this.form.value.password})
           .subscribe((res: any) => {
-          this.storage.saveUser({'token':res.basic,'username':this.form.value.username})
+          this.storage.saveUser({'token':res.basic,'username':this.form.value.username})//login
           this.route.navigateByUrl('/events')
         })
       },

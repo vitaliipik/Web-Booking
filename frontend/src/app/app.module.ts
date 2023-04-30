@@ -22,6 +22,10 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import {LoadingInterceptor} from "./services/loading.interceptor";
 import { EventDetailComponent } from './event-detail/event-detail.component';
+import { PopupComponent } from './popup/popup.component';
+import { UserManagementComponent } from './user-management/user-management.component';
+import { EventManagementComponent } from './event-management/event-management.component';
+import {FilterEventPipe} from "./pipe/filter-event.pipe";
 
 
 
@@ -37,8 +41,8 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
     TicketComponent,
     AccountComponent
 
-    ,FilterPipe, DropdownSearchComponent, AdminComponent, PaginationComponent, SpinnerComponent, EventDetailComponent
-
+    ,FilterPipe, DropdownSearchComponent, AdminComponent, PaginationComponent, SpinnerComponent, EventDetailComponent, PopupComponent, UserManagementComponent, EventManagementComponent
+    ,FilterEventPipe
   ],
   imports: [
     BrowserModule,

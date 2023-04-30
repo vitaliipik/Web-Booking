@@ -1,13 +1,13 @@
 
 .cssload-container{
-  position: relative;
-  top:20%;
-  display: flex;
-  justify-content: center;
-align-items: center;
+  position: absolute;
+  top:50vh;
+  left: 50%;
 }
 
 #loading{
+  position: relative;
+left: -50%;
   width: 80px;
   height: 80px;
 }
@@ -16,7 +16,6 @@ align-items: center;
   display: block;
   width: 64px;
   height: 64px;
-  margin: 8px;
   border-radius: 50%;
   border: 6px solid #fff;
   border-color: #fff transparent #fff transparent;
