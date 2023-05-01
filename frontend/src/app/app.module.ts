@@ -26,6 +26,8 @@ import { PopupComponent } from './popup/popup.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { EventManagementComponent } from './event-management/event-management.component';
 import {FilterEventPipe} from "./pipe/filter-event.pipe";
+import { CreateEventComponent } from './dialogs/craete-event/create-event.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 
@@ -42,7 +44,7 @@ import {FilterEventPipe} from "./pipe/filter-event.pipe";
     AccountComponent
 
     ,FilterPipe, DropdownSearchComponent, AdminComponent, PaginationComponent, SpinnerComponent, EventDetailComponent, PopupComponent, UserManagementComponent, EventManagementComponent
-    ,FilterEventPipe
+    ,FilterEventPipe, CreateEventComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,8 @@ import {FilterEventPipe} from "./pipe/filter-event.pipe";
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    MatDialogModule,
+
 
 
   ],

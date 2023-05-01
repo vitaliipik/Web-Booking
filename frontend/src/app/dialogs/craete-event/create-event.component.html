@@ -1,0 +1,24 @@
+<div class="popup">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+
+
+              <label>Name</label>
+              <input  type="text" class="form-control" formControlName="name">
+                <label>address</label>
+              <input  type="text" class="form-control" formControlName="address">
+                <label>date</label>
+              <input  type="date" class="form-control" formControlName="date">
+                <label>tickets</label>
+              <input  type="text" class="form-control" formControlName="tickets_count">
+    <input type="file" (change)="selectFile($event)" formControlName="image">
+
+          <button type="submit" class="btn btn-primary">Add Event</button>
+          <mat-dialog-actions align="end">
+            <button mat-button color="primary" matDialogClose>Dismiss</button>
+          </mat-dialog-actions>
+
+
+
+  </form>
+</div>

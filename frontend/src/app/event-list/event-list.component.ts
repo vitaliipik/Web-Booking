@@ -17,5 +17,7 @@ export class EventListComponent implements OnInit{
   ngOnInit(): void {
     this.eventService.getEventsData().subscribe(events => this.events=events);
   }
-
+  findImage(filename:string){
+   return this.eventService.getImage(filename).subscribe(events => events)
+  }
 }

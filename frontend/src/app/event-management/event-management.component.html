@@ -2,7 +2,7 @@
   <input type="text" id="search" #searchbar [(ngModel)]="searchInput"   placeholder="Search...">
 </div>
 <div class="container">
-<a class="button">
+<a (click)="openDialog()" class="button">
   <div class="button__line"></div>
   <div class="button__line"></div>
   <span class="button__text">Add new event</span>
@@ -27,9 +27,10 @@
     <td>{{event.tickets_count}}</td>
     <td class="actions">
       <!--      <button class="edit-btn">Edit</button>-->
-      <button class="delete-btn" (click)="deleteUser(event.id)">Delete</button>
+      <button class="delete-btn" (click)="deleteEvent(event.id)">Delete</button>
 <!--      <button class="add-admin-btn" (click)="makeAdmin(user.username)">make Admin</button>-->
     </td>
   </tr>
   </tbody>
 </table>
+

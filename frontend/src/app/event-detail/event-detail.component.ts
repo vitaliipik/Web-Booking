@@ -6,8 +6,7 @@ import {EventItem} from "../models/event.model";
 import {PopupService} from "../services/popup.service";
 import {StorageService} from "../services/storage.service";
 import {TicketService} from "../services/ticket.service";
-import {DialogService} from "../dialog/dialog.service";
-import {PopupComponent} from "../popup/popup.component";
+
 
 @Component({
   selector: 'app-event-detail',

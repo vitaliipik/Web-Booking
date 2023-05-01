@@ -4,5 +4,6 @@ export interface EventItem {
   date: Date;
   id: number;
   name: string;
-  ticketsCount: number;
+  tickets_count: number;
+  image:string;
 }

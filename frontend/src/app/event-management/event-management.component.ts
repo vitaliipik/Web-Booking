@@ -3,6 +3,9 @@ import {UserService} from "../services/user.service";
 import {UserItem} from "../models/user.model";
 import {EventItem} from "../models/event.model";
 import {EventService} from "../services/event.service";
+import {PopupService} from "../services/popup.service";
+import {MatDialog} from "@angular/material/dialog";
+import {CreateEventComponent} from "../dialogs/craete-event/create-event.component";
 
 @Component({
   selector: 'app-event-management',
@@ -11,7 +14,9 @@ import {EventService} from "../services/event.service";
 })
 export class EventManagementComponent {
   constructor(private userService: UserService,
-              private eventService: EventService) { }
+              private eventService: EventService,
+              public dialog: MatDialog,
+  ) { }
 
   events: EventItem[] = []
 
@@ -20,16 +25,20 @@ export class EventManagementComponent {
   public searchResult: Array<any> = [];
 
   userList:Array<any>  = []
+
+  openDialog(){
+    this.dialog.open(CreateEventComponent).afterClosed().subscribe(()=>{
+      this.eventService.getEventsData().subscribe(events => this.events=events);
+    });
+
+  }
   ngOnInit(): void {
     this.eventService.getEventsData().subscribe(events => this.events=events);
   }
-
-
-
-  deleteUser(username:string){
-    this.userService.deleteUser(username).subscribe({
+  deleteEvent(id:string){
+    this.eventService.deleteEvent(id).subscribe({
       next: ()=>{
-        this.userService.getUsersData().subscribe(users => this.userList=users);
+        this.eventService.getEventsData().subscribe(events => this.events=events);
       },
       error: error => {
         console.error('There was an error!', error);

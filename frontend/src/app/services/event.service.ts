@@ -24,4 +24,20 @@ export class EventService {
     return this.http.get<number[]>('/api/v1/event/seat/'+id)
   }
 
+  postEvent(data: EventItem): Observable<any> {
+    return this.http.post<EventItem>('/api/v1/event',data)
+  }
+
+  deleteEvent(id:any): Observable<any> {
+    return this.http.delete<EventItem>('/api/v1/event/'+id)
+  }
+
+  uploadImage(Image:any): Observable<any> {
+    return this.http.post<File>('/api/v1/upload/file',Image)
+  }
+
+  getImage(filename:string): Observable<any> {
+    return this.http.get('display/'+filename)
+  }
+
 }
