@@ -4,6 +4,7 @@ import {TicketService} from "../services/ticket.service";
 import {StorageService} from "../services/storage.service";
 import {map} from "rxjs";
 import {EventService} from "../services/event.service";
+import {LoaderService} from "../services/loader.service";
 
 
 
@@ -19,6 +20,7 @@ export class TicketComponent implements OnInit{
     private ticketService: TicketService,
     private storageService: StorageService,
     private eventService: EventService,
+    public loadingService:LoaderService,
   ) {
   }
   ngOnInit(): void {
