@@ -61,9 +61,11 @@ ul {
   margin: 0;
   padding: 0;
   position: absolute;
+  z-index: 100;
 }
 
 li {
+
   background-color: #3b3640;
   border: 1px solid gold;
   padding: 10px;

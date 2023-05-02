@@ -10,6 +10,12 @@
 
 
 </div>
+<div class="modal-container" *ngIf="tickets.length===0">
+  <div class="modal">
+    <h1 class="modal__title">You are dont have ticket</h1>
+    <p class="modal__text">you don't have tickets, go to the event and buy something</p>
+  </div>
+</div>
 <!--<div class="spin">-->
 <!--  <app-spinner></app-spinner>-->
 <!--</div>-->

@@ -52,7 +52,12 @@ export class EventDetailComponent implements OnInit{
         console.log("dsad");
       },
       error:(err)=>{
-        console.log(err);
+        if(typeof err.error === 'object' && err.error !== null){
+          alert(err.error.message)
+        }
+        else {
+          alert(err.error);
+        }
       }})
     this.popupService.close()
 
@@ -76,6 +81,10 @@ export class EventDetailComponent implements OnInit{
   goToLogin(){
     this.popupService.removeById('modal-1');
     this.router.navigateByUrl('/login');
+  }
+
+  findImage(filename:string){
+    return "http://127.0.0.1:5000/display/"+filename
   }
 
 }

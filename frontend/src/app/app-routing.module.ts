@@ -11,6 +11,7 @@ import {Permission} from "./models/permission.model";
 import {EventDetailComponent} from "./event-detail/event-detail.component";
 import {UserManagementComponent} from "./user-management/user-management.component";
 import {EventManagementComponent} from "./event-management/event-management.component";
+import {ErrorsComponent} from "./errors/errors.component";
 
 const routes: Routes = [
   {path:"events",
@@ -45,6 +46,9 @@ const routes: Routes = [
   },
   {path:"event/:id",
     component: EventDetailComponent
+  },
+  {path:"error/404",
+    component: ErrorsComponent
   },
   {path:"**",pathMatch:'full',
     component: EventListComponent

@@ -28,10 +28,12 @@ import { EventManagementComponent } from './event-management/event-management.co
 import {FilterEventPipe} from "./pipe/filter-event.pipe";
 import { CreateEventComponent } from './dialogs/craete-event/create-event.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { ErrorsComponent } from './errors/errors.component';
 
 
-
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -43,8 +45,9 @@ import {MatDialogModule} from "@angular/material/dialog";
     TicketComponent,
     AccountComponent
 
+
     ,FilterPipe, DropdownSearchComponent, AdminComponent, PaginationComponent, SpinnerComponent, EventDetailComponent, PopupComponent, UserManagementComponent, EventManagementComponent
-    ,FilterEventPipe, CreateEventComponent
+    ,FilterEventPipe, CreateEventComponent, ErrorsComponent
   ],
   imports: [
     BrowserModule,
@@ -52,8 +55,13 @@ import {MatDialogModule} from "@angular/material/dialog";
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    MatDialogModule,
 
+
+    MatDialogModule,
+    MatMenuModule,
+    MatButtonModule,
+
+    BrowserAnimationsModule
 
 
   ],

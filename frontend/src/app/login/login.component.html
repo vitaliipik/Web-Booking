@@ -3,8 +3,11 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <label for="username">Username</label>
     <input type="username" id="username" name="username" placeholder="Your username address" formControlName="username">
+    <div class="error" *ngIf="form.controls['username'].invalid && form.controls['username'].touched">Required</div>
+
     <label for="password">Password</label>
     <input type="password" id="password" name="password" placeholder="Your password" formControlName="password">
+    <div class="error" *ngIf="form.controls['password'].invalid && form.controls['password'].touched">Required</div>
     <div class="remember-me">
       <input type="checkbox" id="remember-me" name="remember-me">
       <label for="remember-me">Remember me</label>

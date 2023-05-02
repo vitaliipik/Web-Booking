@@ -18,6 +18,6 @@ export class EventListComponent implements OnInit{
     this.eventService.getEventsData().subscribe(events => this.events=events);
   }
   findImage(filename:string){
-   return this.eventService.getImage(filename).subscribe(events => events)
+   return "http://127.0.0.1:5000/display/"+filename
   }
 }

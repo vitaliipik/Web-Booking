@@ -15,10 +15,12 @@
   <button *ngIf="isLoggedIn$| async; else loggedIn" class="button" routerLink="/login">Login</button>
   <ng-template  #loggedIn> <img routerLink="/account" src="assets/img/person-svg.svg" width="100%" alt=""/>
   </ng-template>
+  <div class="mat-meny">
+  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
 
-  <div class="menu-icon">☰</div>
-  <div class="navbar-menu">
-    <a href="#">Events</a>
-    <a href="#">Ticket</a>
+  <mat-menu #menu="matMenu">
+    <button routerLink="/events" mat-menu-item>Event</button>
+    <button routerLink="/ticket" mat-menu-item>Ticket</button>
+  </mat-menu>
   </div>
 </header>

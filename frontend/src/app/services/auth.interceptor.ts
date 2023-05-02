@@ -10,10 +10,12 @@ import {StorageService} from "./storage.service";
 })
 export class AuthInterceptor implements HttpInterceptor {
   constructor(private storageService: StorageService,private router: Router) {
+  this.token= this.storageService.getUser().token;
   }
 
-  token = this.storageService.getUser().token;
+  token:string;
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    this.token= this.storageService.getUser().token;
     const token = req.clone({
       setHeaders: {
         Authorization: 'basic ' + this.token
@@ -23,6 +25,9 @@ export class AuthInterceptor implements HttpInterceptor {
       catchError((err:HttpErrorResponse)=>{
       if(err.status === 401) {
         this.router.navigate(['/login']);
+      }
+      else if(err.status===404){
+        this.router.navigateByUrl('/error/404');
       }
         return throwError(err);
     }))

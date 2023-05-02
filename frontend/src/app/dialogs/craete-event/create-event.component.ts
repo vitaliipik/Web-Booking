@@ -31,7 +31,7 @@ export class CreateEventComponent  {
       name: ["", Validators.required],
       address: ["", Validators.required],
       date: ["", Validators.required],
-      tickets_count: ["", Validators.required],
+      tickets_count: ["", [Validators.required,Validators.min(0),Validators.max(2000)]],
 
     },)
 
@@ -48,11 +48,21 @@ export class CreateEventComponent  {
             this.dialogRef.close();
           },
           error:(err)=>{
-            console.log(err);
+            if(typeof err.error === 'object' && err.error !== null){
+              alert(err.error.message)
+            }
+            else {
+              alert(err.error);
+            }
           }})
       },
       error:(err)=>{
-        console.log(err);
+        if(typeof err.error === 'object' && err.error !== null){
+          alert(err.error.message)
+        }
+        else {
+          alert(err.error);
+        }
       }})
 
   }

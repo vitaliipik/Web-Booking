@@ -9,8 +9,11 @@
 
 
 
-  <li *ngFor="let show of searchResult" [hidden]="toggle" routerLink="{{show.id}}">
-    <p> {{ show.president }}</p>
+  <li *ngFor="let event of searchResult"
+      (click)="goToEvent(event.id)"
+      [hidden]="toggle"
+      >
+    <p> {{ event.name }}</p>
   </li>
 
 

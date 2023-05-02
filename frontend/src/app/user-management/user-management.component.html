@@ -22,7 +22,7 @@
     <td>{{user.role | slice:5}}</td>
     <td class="actions">
       <!--      <button class="edit-btn">Edit</button>-->
-      <button class="delete-btn" (click)="deleteUser(user.username)">Delete</button>
+      <button *ngIf="user.role!=='Role.admin'" class="delete-btn" (click)="deleteUser(user.username)">Delete</button>
       <button class="add-admin-btn" (click)="makeAdmin(user.username)">make Admin</button>
     </td>
   </tr>

@@ -1,6 +1,7 @@
 @use '_variables' as *;
 
 
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -10,6 +11,9 @@
   padding: 20px;
   font-size: 18px;
 
+  .mat-meny{
+    display: none;
+  }
   .logo a {
     color: #fff;
     text-decoration: none;
@@ -93,7 +97,9 @@
     .navbar-links {
       display: none;
     }
-
+    .mat-meny{
+      display: block;
+    }
     .menu-icon {
       display: block;
     }

@@ -1,24 +1,17 @@
 <div class="event-detail-cont" *ngIf="event$ | async as event">
   <div class="lookbook-gallery">
     <div class="lookbook-grid" role="region">
+    <figure class="model" *ngFor="let index of [0,1,2]">
+      <img [src]="findImage(event.image)" alt="Event Photo" class="event-photo">
+    </figure>
 
-      <figure class="model">
-        <img src="https://assets.codepen.io/t-1869/fridays.png"/>
-      </figure>
-
-      <figure class="model">
-        <img src="https://assets.codepen.io/t-1869/fridays.png"/>
-      </figure>
-
-      <figure class="model">
-        <img src="https://assets.codepen.io/t-1869/fridays.png"/>
 <!--        <figcaption class="model&#45;&#45;caption">-->
 <!--          <h3 class="model-hed">Scores Baserunner</h3>-->
 <!--          <p>Scores is 5'5", wearing a size S <a href="#">Fridays Away Blaseball Jersey</a>.-->
 <!--          <p>-->
 <!--        </figcaption>-->
-      </figure>
-    </div>
+
+         </div>
   </div>
   <div class="event-detail-element">
     <p><span>{{event.date | date:"MMM dd"}}</span></p>
@@ -63,28 +56,29 @@
 </div>
 <main>
   <div class="event-buttons">
-    <button class="event-book-button" (click)="bookTicket()">Book</button>
-    <button class="event-buy-button">Buy</button>
+    <button class="event-buy-button" (click)="bookTicket()">Buy</button>
   </div>
   <p>Description: <span>A one-day conference for women in technology featuring keynote speakers, workshops, anerence for women in technology featuring s, ce for women in technology featuring s, workshops, anerence for women in technology featuring keynote speakers, workshops, and networking opportunities.</span>
   </p>
 </main>
 <app-popup id="modal-1">
-  <div class="popup">
-    <h1>you are not registered</h1>
+  <div class="modal">
+    <h1 class="modal__title">you are not registered</h1>
 
     <p>
       go to login
     </p>
-    <button (click)="goToLogin()">Login</button>
-    <button (click)="popupService.close()">Close</button>
+    <button class="modal__btn" (click)="goToLogin()">Login</button>
+    <button class="modal__btn" (click)="popupService.close()">Close</button>
   </div>
 
 </app-popup>
 
 <app-popup id="modal-2">
-  <div class="popup">
-    <h1>Select ticket</h1>
+    <div class="modal">
+      <h1 class="modal__title">Select ticket</h1>
+
+
 
     <div class="box">
       <select [(ngModel)]="selectedSeat">
@@ -97,8 +91,8 @@
         <option value="bought">Buy</option>
       </select>
     </div>
-    <button (click)="buyTicket()">Buy</button>
-    <button (click)="popupService.close()">Close</button>
-  </div>
+    <button class="modal__btn" (click)="buyTicket()">Buy</button>
+    <button  class="modal__btn" (click)="popupService.close()">Close</button>
+    </div>
 
 </app-popup>

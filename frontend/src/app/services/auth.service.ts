@@ -15,7 +15,7 @@ export class AuthService {
     return this.http
       .post('/api/v1/user',data)
   }
-  loginUser(data: any): any {
+  loginUser(data: any) {
     return this.http
       .post('/api/v1/user/login',data);
   }

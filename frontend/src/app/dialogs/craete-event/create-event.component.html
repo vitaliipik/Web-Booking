@@ -5,17 +5,22 @@
 
               <label>Name</label>
               <input  type="text" class="form-control" formControlName="name">
-                <label>address</label>
+    <div class="error" *ngIf="form.controls['name'].invalid && form.controls['name'].touched">Required</div>
+
+    <label>address</label>
               <input  type="text" class="form-control" formControlName="address">
+    <div class="error" *ngIf="form.controls['address'].invalid && form.controls['address'].touched">Required</div>
                 <label>date</label>
               <input  type="date" class="form-control" formControlName="date">
+    <div class="error" *ngIf="form.controls['date'].invalid && form.controls['date'].touched">Required</div>
                 <label>tickets</label>
               <input  type="text" class="form-control" formControlName="tickets_count">
+    <div class="error" *ngIf="form.controls['tickets_count'].invalid && form.controls['tickets_count'].touched">its not number or not fit according to the parameter</div>
     <input type="file" (change)="selectFile($event)" formControlName="image">
 
           <button type="submit" class="btn btn-primary">Add Event</button>
           <mat-dialog-actions align="end">
-            <button mat-button color="primary" matDialogClose>Dismiss</button>
+            <button color="primary" matDialogClose>Dismiss</button>
           </mat-dialog-actions>
 
 
