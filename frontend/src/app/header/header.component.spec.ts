@@ -1,6 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {DropdownSearchComponent} from "./dropdown-search/dropdown-search.component";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatButtonModule} from "@angular/material/button";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -8,7 +14,12 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      imports: [HttpClientTestingModule,
+        MatMenuModule,
+        ReactiveFormsModule,
+        FormsModule
+        ],
+      declarations: [ HeaderComponent,DropdownSearchComponent ]
     })
     .compileComponents();
 

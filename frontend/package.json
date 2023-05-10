@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "lint-ts": "eslint --ext .ts src/**/*.ts && npm run ng lint"
+    "lint-ts": "eslint --fix --ext .ts src/**/*.ts && npm run ng lint"
   },
   "private": true,
   "dependencies": {

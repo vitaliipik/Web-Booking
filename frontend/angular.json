@@ -91,6 +91,12 @@
               "zone.js",
               "zone.js/testing"
             ],
+            "codeCoverage": true,
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/scss/include"
+              ]
+            },
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [

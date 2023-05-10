@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EventManagementComponent } from './event-management.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {MatDialogModule} from "@angular/material/dialog";
+import {FilterEventPipe} from "../pipe/filter-event.pipe";
+import {PopupComponent} from "../popup/popup.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 describe('EventManagementComponent', () => {
   let component: EventManagementComponent;
@@ -8,7 +13,14 @@ describe('EventManagementComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EventManagementComponent ]
+      imports: [HttpClientTestingModule,
+        MatDialogModule,
+        ReactiveFormsModule,
+        FormsModule
+     ],
+      declarations: [ EventManagementComponent,
+        FilterEventPipe,
+      PopupComponent]
     })
     .compileComponents();
 

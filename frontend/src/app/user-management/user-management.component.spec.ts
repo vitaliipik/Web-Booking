@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserManagementComponent } from './user-management.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {FilterPipe} from "../pipe/filter.pipe";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 describe('UserManagementComponent', () => {
   let component: UserManagementComponent;
@@ -8,7 +11,11 @@ describe('UserManagementComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserManagementComponent ]
+      imports: [HttpClientTestingModule,
+        ReactiveFormsModule,
+        FormsModule],
+      declarations: [ UserManagementComponent,
+        FilterPipe ]
     })
     .compileComponents();
 
