@@ -16,8 +16,9 @@ import {catchError} from "rxjs/operators";
 export class AccountComponent implements OnInit{
   account:boolean;
   edit:boolean;
-  // @ts-ignore
-  user:UserItem;
+
+
+  user!:UserItem;
 
   form!: FormGroup;
 
@@ -33,6 +34,18 @@ export class AccountComponent implements OnInit{
       password: [''],
     })
   }
+  private initFirstForm() {
+    this.form = this.builder.group({
+      username: ["", Validators.required],
+      first_name: [""],
+      last_name: [""],
+      phone: [""],
+      email: ["",
+        Validators.compose([Validators.required,
+          Validators.email])],
+      password: [''],
+    })
+  }
 
   constructor(private storage: StorageService,
               private userService:UserService,
@@ -40,7 +53,6 @@ export class AccountComponent implements OnInit{
               private auth:AuthService) {
     this.account=true;
     this.edit=false;
-
   }
   toggleMenu(a: HTMLAnchorElement): void {
   if(a.id==='password-tab'){
@@ -58,7 +70,7 @@ export class AccountComponent implements OnInit{
   }
 
   ngOnInit(): void {
-
+    this.initFirstForm()
     this.userService.getUserData(this.storage.getUser().username)
       .subscribe(user=>{
         this.user=user;

@@ -10,8 +10,8 @@ import {Observable} from "rxjs";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit{
-  // @ts-ignore
-  isLoggedIn$: Observable<boolean>;
+
+  isLoggedIn$: Observable<boolean> | undefined;
 
 
 

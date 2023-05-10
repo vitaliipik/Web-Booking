@@ -26,7 +26,7 @@ export class DropdownSearchComponent {
   goToEvent(id:string){
     this.router.navigateByUrl("/event/"+id);
   }
-  toggle: boolean = false;
+  toggle = false;
 
   fetchSeries(event: any): any {
     if (event.target.value === '') {
@@ -39,7 +39,7 @@ export class DropdownSearchComponent {
   }
 
 
-  public searchInput: String = '';
+  public searchInput = '';
   public searchResult: Array<any> = [];
 
 }

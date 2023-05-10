@@ -29,7 +29,7 @@
           <button class="btn btn-secondary" id="logout-tab" (click)="logOut()">Log out</button>
         </div>
       </div>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <form *ngIf="user" [formGroup]="form" (ngSubmit)="onSubmit()">
 
       <div [ngSwitch]="true" class="tab-content p-4 p-md-5" id="v-pills-tabContent">
 
@@ -38,7 +38,10 @@
             <div class="col-md-6">
               <div  class="form-group">
                 <label>First Name</label>
-                <input *ngIf="edit;else firstname" type="text" class="form-control" formControlName="first_name">
+                <input *ngIf="edit;else firstname"
+                       type="text"
+                       class="form-control"
+                       [formControlName]="'first_name'">
                 <ng-template #firstname>
                   <br>
                   <label> {{user.first_name}} </label>

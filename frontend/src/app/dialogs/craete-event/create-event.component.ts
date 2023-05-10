@@ -32,7 +32,7 @@ export class CreateEventComponent  {
       address: ["", Validators.required],
       date: ["", Validators.required],
       tickets_count: ["", [Validators.required,Validators.min(0),Validators.max(2000)]],
-
+      image:[null,Validators.required]
     },)
 
      }

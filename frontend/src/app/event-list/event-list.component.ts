@@ -9,7 +9,7 @@ import {EventItem} from "../models/event.model";
 })
 export class EventListComponent implements OnInit{
   events: EventItem[] = []
-  rando=Math.floor(Math.random() * (800 - 785) + 790)
+
   constructor(
     private eventService: EventService,
   ) {
