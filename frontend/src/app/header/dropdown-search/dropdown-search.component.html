@@ -1,0 +1,20 @@
+<div class="bar">
+
+
+  <input class="search-input" type="text" #searchbar [(ngModel)]="searchInput" (keyup)="fetchSeries($event)" placeholder="Enter the"/>
+  <i class="fa fa-search"></i>
+
+</div>
+<ul>
+
+
+
+  <li *ngFor="let event of searchResult"
+      (click)="goToEvent(event.id)"
+      [hidden]="toggle"
+      >
+    <p> {{ event.name }}</p>
+  </li>
+
+
+</ul>

@@ -1,0 +1,30 @@
+<div class="search-bar">
+  <input type="text" id="search" #searchbar [(ngModel)]="searchInput"   placeholder="Search...">
+</div>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Role</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <!--  <app-spinner></app-spinner>-->
+  <tbody>
+  <tr *ngFor="let user of userList | filter: searchInput">
+    <td>{{user.first_name}} {{user.last_name}}</td>
+    <td>{{user.username}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.phone}}</td>
+    <td>{{user.role | slice:5}}</td>
+    <td class="actions">
+      <!--      <button class="edit-btn">Edit</button>-->
+      <button *ngIf="user.role!=='Role.admin'" class="delete-btn" (click)="deleteUser(user.username)">Delete</button>
+      <button class="add-admin-btn" (click)="makeAdmin(user.username)">make Admin</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

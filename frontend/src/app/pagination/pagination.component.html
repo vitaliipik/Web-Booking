@@ -1,0 +1,40 @@
+<div class="pagination">
+  <ul>
+    <li
+      aria-label="Go To Previous Page"
+      [attr.aria-disabled]="currentPage === 1"
+      [ngClass]="{'disabled':currentPage === 1}"
+      (click)="onPrevious()"
+    >
+        Previous
+
+    </li>
+    <li *ngFor="let page of pages; index as i">
+      <a
+        *ngIf="page !== -1; else more"
+        class="internal"
+        [attr.aria-current]="page === currentPage ? 'page' : null"
+        [attr.aria-label]="
+          page === currentPage ? 'Current Page, Page ' + page : 'Go to Page ' + page
+        "
+        [class.current]="page === currentPage"
+        tabindex="0"
+        (click)="onGoTo(page)"
+        (keyup.enter)="onGoTo(page)"
+      >{{ page }}</a
+      >
+      <ng-template #more>
+        <a class="more"> ... </a>
+      </ng-template>
+    </li>
+    <li
+      aria-label="Go To Next Page"
+      [attr.aria-disabled]="currentPage === total"
+      [ngClass]="{'disabled':currentPage === total}"
+      (click)="onNext()">
+
+        Next
+
+    </li>
+  </ul>
+</div>

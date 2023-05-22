@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'e-Ukraine';
+  src: url('assets/fonts/E-Ukraine-Regular.otf') format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  min-width: 270px;
+  background: linear-gradient(180deg, #1D1E26 0%, #25273C 100%);
+  font-family: 'e-Ukraine', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+}
+
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+

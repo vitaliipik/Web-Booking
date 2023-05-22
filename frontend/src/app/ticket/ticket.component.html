@@ -1,0 +1,21 @@
+<div class="tickets-container">
+  <div class="ticket"  *ngFor="let ticket of tickets">
+    <div class="ticket-header">
+      <div class="ticket-event">{{ticket.name}}</div>
+      <div class="divide"><div class="ticket-status">{{ticket.status}}</div>
+        <div class="ticket-seat">{{ticket.seat}}</div></div>
+    </div>
+
+  </div>
+
+
+</div>
+<div class="modal-container" *ngIf="tickets.length===0 && this.loadingService.loading===false">
+  <div class="modal">
+    <h1 class="modal__title">You don`t have any tickets</h1>
+    <p class="modal__text">you don't have any tickets, go to the event and buy something</p>
+  </div>
+</div>
+<!--<div class="spin">-->
+<!--  <app-spinner></app-spinner>-->
+<!--</div>-->

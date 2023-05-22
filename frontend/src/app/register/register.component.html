@@ -1,0 +1,30 @@
+<div class="register-container">
+  <h1>Create a New Account</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" placeholder="Your username" formControlName="username">
+    <div class="error" *ngIf="form.controls.username.invalid && form.controls.username.touched">Required</div>
+    <label for="first-name">First Name</label>
+    <input type="text" id="first-name" name="first-name" placeholder="Your first name" formControlName="first_name">
+    <label for="last-name">Last Name</label>
+    <input type="text" id="last-name" name="last-name" placeholder="Your last name" formControlName="last_name">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Your email address" formControlName="email">
+    <div class="error" *ngIf="form.controls.email.invalid && form.controls.email.touched">Incorrect Email</div>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Your password" formControlName="password">
+    <div class="error" *ngIf="form.controls.password.invalid && form.controls.password.touched">Required</div>
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" placeholder="Your phone number" formControlName="phone">
+    <button type="submit">Sign Up</button>
+  </form>
+  <div class="signup-link">
+    <p>Already have an account? <a routerLink="/login">Log in</a></p>
+  </div>
+</div>
+<div *ngIf="form.errors?.['required']">
+
+  {{form.errors}}
+</div>

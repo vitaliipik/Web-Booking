@@ -1,0 +1,35 @@
+@use 'sass:color';
+
+$mobile-view: 600px;
+
+$object-fit-photo: cover;
+$object-position-photo: center;
+
+$green-main: #1abc9c;
+
+$primary-color: #1a1a1a;
+$secondary-color: #212121;
+
+$button-color: #4CAF50;
+
+$color-white: #fff;
+
+
+$light-color: hsl(220, 50%, 90%);
+$background-modal: linear-gradient(to right, hsl(210, 30%, 20%), hsl(255, 30%, 25%));
+$shadow-1: hsla(236, 50%, 50%, .3);
+$shadow-2: hsla(236, 50%, 50%, .4);
+$light: hsl(220, 50%, 90%);
+$primary: hsl(255, 30%, 55%);
+$focus: hsl(210, 90%, 50%);
+$border-color: hsla(0, 0%, 100%, .2);
+
+.error {
+  background: #c51244 !important;
+  padding: 10px !important;
+  border: 1px solid white !important;
+  position: relative;
+  display: inline-block !important;
+  color: white;
+  margin-bottom: 10px;
+}

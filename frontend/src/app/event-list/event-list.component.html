@@ -1,0 +1,27 @@
+<div class="events-container">
+
+
+  <div class="event-details" *ngFor="let event of events" [routerLink]="['/event/',event.id]">
+    <div class="event-header">
+      <h3 class="event-name">{{event.name}}</h3>
+    </div>
+    <img [src]="findImage(event.image)" alt="Event Photo" class="event-photo">
+    <div class="event-body">
+      <div class="event-info">
+        <div class="event-info-item">
+          <div class="event-info-label">Location:</div>
+          <div class="event-info-value">{{event.address}}</div>
+        </div>
+        <div class="event-info-item">
+          <div class="event-info-label">Date:</div>
+          <div class="event-info-value">{{event.date | date:"MM/dd/yy"}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<footer>  <app-pagination
+  [currentPage]="1"
+  [total]="20"
+></app-pagination></footer>
