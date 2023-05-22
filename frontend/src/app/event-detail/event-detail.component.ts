@@ -48,9 +48,6 @@ export class EventDetailComponent implements OnInit{
       "event_id":this.routeId,
       "user_id":id})
       .subscribe({
-      next:()=> {
-        console.log("dsad");
-      },
       error:(err)=>{
         if(typeof err.error === 'object' && err.error !== null){
           alert(err.error.message)

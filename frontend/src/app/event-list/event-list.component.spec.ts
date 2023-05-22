@@ -1,11 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed} from '@angular/core/testing';
 
-import { EventListComponent } from './event-list.component';
+import {EventListComponent} from './event-list.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {PaginationComponent} from "../pagination/pagination.component";
 import {DebugElement} from "@angular/core";
 import {EventService} from "../services/event.service";
 import {EventItem} from "../models/event.model";
+import {By} from "@angular/platform-browser";
+import {RouterTestingModule} from "@angular/router/testing";
+import {UserItem} from "../models/user.model";
+import {of} from "rxjs";
 
 describe('EventListComponent', () => {
   let component: EventListComponent;
@@ -15,7 +19,7 @@ let eventService:EventService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule,RouterTestingModule],
 
       declarations: [ EventListComponent,
         PaginationComponent ],
@@ -24,7 +28,7 @@ let eventService:EventService;
     .compileComponents();
 
     fixture = TestBed.createComponent(EventListComponent);
-    eventService=jasmine.createSpyObj('EventService',['getEventsData'])
+    eventService=TestBed.inject(EventService);
     component = fixture.componentInstance;
     el=fixture.debugElement;
     fixture.detectChanges();
@@ -35,23 +39,40 @@ let eventService:EventService;
   });
 
   it('should display the event list', () => {
-    const events=[{
+    component.events=[{
       address: "string;",
-      date: "Date;",
       id: 1,
+      date: new Date(),
       name: "string;",
       tickets_count: 4,
-      image:"name"
-    },{
+      image: "name"
+    }, {
       address: "string;",
-      date: "Date;",
+      date: new Date(),
       id: 2,
       name: "string;",
       tickets_count: 4,
-      image:"name"
+      image: "name"
     }]
-    component.events=
+    fixture.detectChanges()
+    const events = el.queryAll(By.css(".event-details"))
+    expect(events.length).toBe(2,"Unexpected number of event")
   });
+
+
+  it("should call OnInnit and return list of users", fakeAsync(() => {
+    const response: EventItem[] = [];
+
+    spyOn(eventService,'getEventsData').and.returnValue(of(response))
+
+    component.ngOnInit();
+
+    fixture.detectChanges();
+    expect(component.events).toEqual(response);
+
+  }));
+
+
 
 
 });

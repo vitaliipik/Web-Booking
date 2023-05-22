@@ -37,7 +37,6 @@ describe('UserService', () => {
       });
 
     const req = httpTestingController.expectOne(`/api/v1/user/${username}`);
-
     expect(req.request.method).toEqual("DELETE");
     req.flush(mokeResponse)
     httpTestingController.verify()
