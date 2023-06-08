@@ -17,4 +17,7 @@ export class TicketService {
   buyTicket(data:TicketInput): Observable<TicketItem[]> {
     return this.http.post<TicketItem[]>(`/api/v1/ticket`,data)
   }
+  cancelTicket(id:string): Observable<TicketItem[]> {
+    return this.http.delete<TicketItem[]>(`/api/v1/cancelTicket/${id}`)
+  }
 }

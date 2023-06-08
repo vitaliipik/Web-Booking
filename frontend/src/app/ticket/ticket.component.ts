@@ -5,6 +5,9 @@ import {StorageService} from "../services/storage.service";
 import {map} from "rxjs";
 import {EventService} from "../services/event.service";
 import {LoaderService} from "../services/loader.service";
+import {CreateEventComponent} from "../dialogs/craete-event/create-event.component";
+import {MatDialog} from "@angular/material/dialog";
+import {TicketDetailComponent} from "../dialogs/ticket-detail/ticket-detail.component";
 
 
 
@@ -21,6 +24,7 @@ export class TicketComponent implements OnInit{
     private storageService: StorageService,
     private eventService: EventService,
     public loadingService:LoaderService,
+    public dialog: MatDialog
   ) {
   }
   ngOnInit(): void {
@@ -38,4 +42,13 @@ export class TicketComponent implements OnInit{
     }))
       .subscribe(value => this.tickets = value);
   }
+
+  openDialog(id:number){
+    const data={id:id}
+    this.dialog.open(TicketDetailComponent,{data:data}).afterClosed().subscribe(()=>{
+      this.ngOnInit()
+    });
+
+  }
+
 }

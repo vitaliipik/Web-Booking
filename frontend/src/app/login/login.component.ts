@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit{
 
   constructor(private builder: FormBuilder ,
               private auth: AuthService,
-              private route: Router,
+              private router: Router,
               private storage: StorageService,
               private userService: UserService) {
 
@@ -41,10 +41,6 @@ export class LoginComponent implements OnInit{
   onSubmit(): void {
     if(this.form.valid) {
       this.auth.loginUser(this.form.value).subscribe({next:(res: any) => {
-          if (res.status == '404') {
-            alert(res.message);
-            return;
-          }
           const httpOptions = {
             headers: new HttpHeaders({
               'Content-Type': 'application/json',
@@ -59,7 +55,7 @@ export class LoginComponent implements OnInit{
                 'role': elem["role"].slice(5,),
                 'id': elem["id"]
               });
-              this.route.navigateByUrl('/events')
+              this.router.navigateByUrl('/events')
             })
 
 

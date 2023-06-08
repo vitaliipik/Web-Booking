@@ -18,7 +18,7 @@
     <div class="error" *ngIf="form.controls['tickets_count'].invalid && form.controls['tickets_count'].touched">its not number or not fit according to the parameter</div>
     <input type="file" (change)="selectFile($event)" formControlName="image">
 
-          <button type="submit" class="btn btn-primary">Add Event</button>
+          <button type="submit" class="btn btn-primary">{{textSubmit}}</button>
           <mat-dialog-actions align="end">
             <button color="primary" matDialogClose>Dismiss</button>
           </mat-dialog-actions>

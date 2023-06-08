@@ -34,6 +34,7 @@ import { ErrorsComponent } from './errors/errors.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TicketDetailComponent } from './dialogs/ticket-detail/ticket-detail.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
     ,FilterPipe, DropdownSearchComponent, AdminComponent, PaginationComponent, SpinnerComponent, EventDetailComponent, PopupComponent, UserManagementComponent, EventManagementComponent
-    ,FilterEventPipe, CreateEventComponent, ErrorsComponent
+    ,FilterEventPipe, CreateEventComponent, ErrorsComponent, TicketDetailComponent
   ],
   imports: [
     BrowserModule,

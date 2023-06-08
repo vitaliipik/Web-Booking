@@ -27,6 +27,9 @@ export class EventService {
   postEvent(data: EventItem): Observable<any> {
     return this.http.post<EventItem>('/api/v1/event',data)
   }
+  updateEvent(data: EventItem): Observable<any> {
+    return this.http.put<EventItem>('/api/v1/event',data)
+  }
 
   deleteEvent(id:any): Observable<any> {
     return this.http.delete<EventItem>('/api/v1/event/'+id)

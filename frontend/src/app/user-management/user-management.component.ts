@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from "../services/user.service";
 import {UserItem} from "../models/user.model";
 
@@ -7,13 +7,13 @@ import {UserItem} from "../models/user.model";
   templateUrl: './user-management.component.html',
   styleUrls: ['./user-management.component.scss']
 })
-export class UserManagementComponent {
+export class UserManagementComponent implements OnInit{
 
   constructor(private userService: UserService) { }
 
   public searchInput = '';
-  // @ts-ignore
-  public searchResult: Array<any> = [];
+  // // @ts-ignore
+  // public searchResult: Array<any> = [];
 
   userList:Array<any>  = []
   ngOnInit(): void {

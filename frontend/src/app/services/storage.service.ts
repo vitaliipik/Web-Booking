@@ -2,6 +2,7 @@ import {EventEmitter, Injectable, Output} from '@angular/core';
 import {Router} from "@angular/router";
 import {BehaviorSubject, map} from "rxjs";
 import {UserService} from "./user.service";
+import {Permission} from "../models/permission.model";
 
 const AUTH_KEY = 'auth-user';
 @Injectable({
@@ -10,6 +11,8 @@ const AUTH_KEY = 'auth-user';
 export class StorageService {
 
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  public permission: BehaviorSubject<Permission> = new BehaviorSubject<Permission>(Permission.none);
+
 
   get isLoggedIn() {
     this.getUser();
@@ -28,6 +31,7 @@ export class StorageService {
     window.sessionStorage.removeItem(AUTH_KEY);
     window.sessionStorage.setItem(AUTH_KEY, JSON.stringify(user));
     this.loggedIn.next(false);
+    this.permission.next(user.role)
   }
 
   public getUser(): any {
