@@ -68,7 +68,7 @@
     <p>
       go to login
     </p>
-    <button class="modal__btn" (click)="goToLogin()">Login</button>
+    <button class="modal__btn go-to-login" (click)="goToLogin()">Login</button>
     <button class="modal__btn" (click)="popupService.close()">Close</button>
   </div>
 
@@ -79,13 +79,15 @@
       <h1 class="modal__title">Select ticket</h1>
 
 
+      <div class="select">
 
-    <div class="box">
       <select [(ngModel)]="selectedSeat">
         <option *ngFor="let opt of eventSeat">{{opt}}</option>
       </select>
-    </div>
-    <div class="box">
+
+        </div>
+      <br>
+      <div class="select">
       <select [(ngModel)]="selectedAction">
         <option value="booked">Book</option>
         <option value="bought">Buy</option>

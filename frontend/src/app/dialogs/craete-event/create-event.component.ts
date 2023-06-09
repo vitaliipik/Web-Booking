@@ -65,20 +65,13 @@ export class CreateEventComponent {
             this.dialogRef.close();
           },
           error: (err) => {
-            if (typeof err.error === 'object' && err.error !== null) {
               alert(err.error.message)
-            } else {
-              alert(err.error);
-            }
+
           }
         })
       },
     error: (err) => {
-      if (typeof err.error === 'object' && err.error !== null) {
         alert(err.error.message)
-      } else {
-        alert(err.error);
-      }
     }
     })
 
@@ -86,10 +79,6 @@ export class CreateEventComponent {
 
 
   selectFile(event: any) {
-    if (!event.target.files[0] || event.target.files[0].length == 0) {
-      alert('You must select an image');
-      return;
-    }
 
     const mimeType = event.target.files[0].type;
 

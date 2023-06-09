@@ -15,6 +15,7 @@ body {
   line-height: 1.5;
   color: #333;
   background-color: #f2f2f2;
+  min-width: 365px;
 }
 
 .event-detail-cont {
@@ -81,13 +82,16 @@ main {
   }
 
   .event-buttons {
-    display: flex;
+    display: block;
+    padding: 20px;
     margin-bottom: 3rem;
+
   }
 
   .event-book-button,
   .event-buy-button {
-    display: inline-block;
+    display: flex;
+
     margin-right: 2rem;
     padding: 1.5rem 3rem;
     font-size: 1.6rem;
@@ -99,6 +103,7 @@ main {
     border-radius: 30px;
     cursor: pointer;
     transition: background-color 0.3s;
+
   }
 
   .event-book-button:hover,
@@ -345,24 +350,62 @@ main {
 //
 //}
 
-.box select {
-  background-color: #0563af;
-  color: white;
-  padding: 12px;
-  width: 250px;
-  border: none;
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding:12px;
   font-size: 20px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-  -webkit-appearance: button;
-  outline: none;
+
+  color: #fff;
+  background-color:#2c3e50;
+  background-image: none;
+  cursor: pointer;
+  option {
+    &:hover{
+      color: #3b3640;
+    }
+    padding: 30px;
+  }
 }
-
-
-.box select option {
-  padding: 30px;
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
 }
-
-
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  font-size: 20px;
+  height: 3em;
+  border-radius: .25em;
+  overflow: hidden;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #34495e;
+  transition: .25s all ease;
+  pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+  color: #f39c12;
+}
+@media (max-width: 528px) {
+  .select{
+    width: 200px;
+  }
+}
 .modal {
   width: 60rem;
   padding: 4rem 2rem;
@@ -396,7 +439,7 @@ main {
   padding: 1rem 1.6rem;
   border: 1px solid $border-color;
   border-radius: 100rem;
-
+  position: relative;
   color: inherit;
   background: transparent;
   font-size: 1.4rem;
