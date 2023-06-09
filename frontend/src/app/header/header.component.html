@@ -13,7 +13,14 @@
   </div>
 
   <button *ngIf="isLoggedIn$| async; else loggedIn" class="button" routerLink="/login">Login</button>
-  <ng-template  #loggedIn> <img routerLink="/account" src="assets/img/person-svg.svg" width="100%" alt=""/>
+  <ng-template  #loggedIn>
+    <div class="image-container">
+
+
+    <img *ngIf="permissionBool===Permission.admin" routerLink="/admin/users" src="assets/img/admin-logo.svg" width="100%" alt=""/>
+
+    <img routerLink="/account" src="assets/img/person-svg.svg" width="100%" alt=""/>
+    </div>
   </ng-template>
   <div class="mat-meny">
   <button mat-button [matMenuTriggerFor]="menu">Menu</button>

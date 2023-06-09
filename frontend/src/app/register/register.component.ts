@@ -47,10 +47,10 @@ export class RegisterComponent implements OnInit {
     this.auth.registerUser(this.form.value).subscribe({
       next: ()=>{
         this.auth.loginUser(this.form.value).subscribe({next:(res: any) => {
-            if (res.status == '404') {
-              alert(res.message);
-              return;
-            }
+            // if (res.status == '404') {
+            //   alert(res.message);
+            //   return;
+            // }
             const httpOptions = {
               headers: new HttpHeaders({
                 'Content-Type': 'application/json',
@@ -84,12 +84,9 @@ export class RegisterComponent implements OnInit {
       },
       error: err => {
 
-        if(typeof err.error === 'object' && err.error !== null){
+
           alert(err.error.message)
-        }
-        else {
-          alert(err.error);
-        }
+
 
     }})
 

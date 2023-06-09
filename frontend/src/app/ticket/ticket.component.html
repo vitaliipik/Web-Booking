@@ -1,5 +1,5 @@
 <div class="tickets-container">
-  <div class="ticket"  *ngFor="let ticket of tickets">
+  <div class="ticket" (click)="openDialog(ticket.id)"  *ngFor="let ticket of tickets">
     <div class="ticket-header">
       <div class="ticket-event">{{ticket.name}}</div>
       <div class="divide"><div class="ticket-status">{{ticket.status}}</div>

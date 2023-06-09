@@ -3,6 +3,7 @@ import {Component,  OnInit} from '@angular/core';
 
 import {StorageService} from "../services/storage.service";
 import {Observable} from "rxjs";
+import {Permission} from "../models/permission.model";
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,8 @@ import {Observable} from "rxjs";
 export class HeaderComponent implements OnInit{
 
   isLoggedIn$: Observable<boolean> | undefined;
+  permission$:   Observable<Permission> | undefined;
+  permissionBool:   Permission | undefined;
 
 
 
@@ -21,7 +24,11 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit(): void {
     this.isLoggedIn$ = this.storageService.isLoggedIn;
-
+    this.permission$ = this.storageService.permission;
+  this.permission$.subscribe((el)=>{
+    this.permissionBool=el
+  })
   }
 
+  protected readonly Permission = Permission;
 }

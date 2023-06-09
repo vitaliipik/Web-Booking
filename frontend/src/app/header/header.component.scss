@@ -8,8 +8,9 @@
   align-items: center;
   background-color: #333;
   color: #fff;
-  padding: 20px;
+  padding: 5px;
   font-size: 18px;
+  margin-bottom: 5px;
 
   .mat-meny{
     display: none;
@@ -30,7 +31,9 @@
       color: #ccc;
     }
   }
+
   img{
+    margin-right: 2rem;
     max-width: 2em;
     cursor: pointer;
   }
@@ -42,13 +45,11 @@
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    margin-left: auto;
+    margin-left: 10px;
     margin-right: 10px;
   }
 
-  .login-button {
-    margin-right: 20px;
-  }
+
 
   .menu-icon {
     font-size: 28px;
@@ -94,6 +95,9 @@
     width: 100%;
   }
   @media (max-width: $mobile-view) {
+    .searchbar{
+     display: none;
+    }
     .navbar-links {
       display: none;
     }
@@ -119,6 +123,7 @@
 
     .button {
       margin-right: 10px;
+      margin-left: 10px;
     }
   }
   img{
@@ -147,6 +152,11 @@
      transition: 0.5s;
       box-shadow: 0 0 5px #ffee10;
       text-shadow: 0 0 5px #ffee10;
+    }
+  }
+  .mat-meny{
+    button{
+      color: white;
     }
   }
 }

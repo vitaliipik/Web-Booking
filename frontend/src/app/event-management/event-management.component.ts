@@ -27,7 +27,8 @@ export class EventManagementComponent {
   userList:Array<any>  = []
 
   openDialog(){
-    this.dialog.open(CreateEventComponent).afterClosed().subscribe(()=>{
+    const data={state:false}
+    this.dialog.open(CreateEventComponent,{data:data}).afterClosed().subscribe(()=>{
       this.eventService.getEventsData().subscribe(events => this.events=events);
     });
 
@@ -43,6 +44,12 @@ export class EventManagementComponent {
       error: error => {
         console.error('There was an error!', error);
       }
+    });
+  }
+  editEvent(id:string){
+    const data={state:true,id:id}
+    this.dialog.open(CreateEventComponent,{data:data}).afterClosed().subscribe(()=>{
+      this.eventService.getEventsData().subscribe(events => this.events=events);
     });
   }
 }

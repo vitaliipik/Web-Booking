@@ -26,7 +26,7 @@
     <td>{{event.date}}</td>
     <td>{{event.tickets_count}}</td>
     <td class="actions">
-      <!--      <button class="edit-btn">Edit</button>-->
+            <button class="edit-btn"  (click)="editEvent(event.id)">Edit</button>
       <button class="delete-btn" (click)="deleteEvent(event.id)">Delete</button>
 <!--      <button class="add-admin-btn" (click)="makeAdmin(user.username)">make Admin</button>-->
     </td>

@@ -12,13 +12,13 @@ export class PopupComponent implements OnInit, OnDestroy{
   isOpen = false;
   private element: any;
 
-  constructor(private popopupService: PopupService, private el: ElementRef) {
+  constructor(private popupService: PopupService, private el: ElementRef) {
     this.element = el.nativeElement;
   }
 
   ngOnInit() {
     // add self (this modal instance) to the modal service so it can be opened from any component
-    this.popopupService.add(this);
+    this.popupService.add(this);
 
     // move element to bottom of page (just before </body>) so it can be displayed above everything else
     document.body.appendChild(this.element);
@@ -34,7 +34,7 @@ export class PopupComponent implements OnInit, OnDestroy{
 
   ngOnDestroy() {
     // remove self from modal service
-    this.popopupService.remove(this);
+    this.popupService.remove(this);
 
     // remove modal element from html
     this.element.remove();

@@ -49,12 +49,7 @@ export class EventDetailComponent implements OnInit{
       "user_id":id})
       .subscribe({
       error:(err)=>{
-        if(typeof err.error === 'object' && err.error !== null){
           alert(err.error.message)
-        }
-        else {
-          alert(err.error);
-        }
       }})
     this.popupService.close()
 
